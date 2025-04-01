@@ -11,10 +11,10 @@ This project is a personal **training project** for me to improve my skills in w
 The game is built using the following technologies:
 
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/React.svg" width="50" height="50" style="border-radius: 12px;" alt="React logo" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/HTML5_logo_and_wordmark.svg" width="50" height="50" style="border-radius: 12px;" alt="HTML logo" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/CSS_Logo.svg" width="50" height="50" style="border-radius: 12px;" alt="CSS logo" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="50" height="50" style="border-radius: 12px;" alt="JavaScript logo" />
+  <a href="https://reactjs.org/" target="_blank"><img style="margin: 10px" src="https://github.com/tandpfun/skill-icons/raw/main/icons/React-Dark.svg" alt="React" height="50" /></a>  
+ <a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><img style="margin: 10px" src="https://github.com/tandpfun/skill-icons/raw/main/icons/HTML.svg" alt="HTML5" height="50" /></a>  
+<a href="https://www.w3schools.com/css/" target="_blank"><img style="margin: 10px" src="https://github.com/tandpfun/skill-icons/raw/main/icons/CSS.svg" alt="CSS3" height="50" /></a>  
+<a href="https://www.javascript.com/" target="_blank"><img style="margin: 10px" src="https://github.com/tandpfun/skill-icons/raw/main/icons/JavaScript.svg" alt="JavaScript" height="50" /></a>  
 </div>
 
 ---
