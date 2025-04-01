@@ -1,0 +1,54 @@
+.locked-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pin-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pin-keypad button {
+  height: 45px;
+  width: 45px;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.pin-keypad button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.pin-keypad button:nth-child(10) {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.pin-input {
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 16px;
+}

@@ -1,0 +1,11 @@
+│── src/
+│   ├── assets/           # Images, sons, polices...
+│   ├── components/       # Composants réutilisables
+│   ├── pages/            # Pages principales de l'application
+│   ├── hooks/            # Hooks personnalisés (si besoin)
+│   ├── context/          # Gestion du contexte global
+│   ├── utils/            # Fonctions utilitaires
+│   ├── styles/           # Fichiers CSS ou Tailwind config
+│   ├── data/             # Fichiers JSON, fausses données, scénarios...
+│   ├── App.jsx           # Composant principal
+│   ├── main.jsx          # Point d’entrée de l’application

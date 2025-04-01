@@ -1,0 +1,13 @@
+.phone-content {
+  color: white;
+  text-align: center;
+}
+
+.locked-message {
+  font-size: 1.125rem;
+}
+
+.unlock-message {
+  font-size: 0.875rem;
+  color: #9e9e9e;
+}
