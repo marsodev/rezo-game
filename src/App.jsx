@@ -2,29 +2,41 @@ import React, { useState } from "react";
 import PhoneFrame from "./components/PhoneFrame/PhoneFrame";
 import LockScreen from "./components/LockScreen/LockScreen";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
+import RezoApp from "./apps/RezoApp/RezoApp";
 import "./styles/App.css";
+import appIcon from "./assets/img/app-icon.png";
 
 const App = () => {
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [appOpened, setAppOpened] = useState(false);
+  const [appOpened, setAppOpened] = useState(null);
+
+  const apps = [{ name: "Rezo", icon: appIcon }];
 
   const handleUnlock = () => {
     setIsUnlocked(true);
   };
 
   const handleHomePress = () => {
-    setAppOpened(false); // Ferme l'app et revient à l'accueil
+    setAppOpened(null);
+  };
+
+  const handleAppOpen = (appName) => {
+    setAppOpened(appName);
   };
 
   return (
     <PhoneFrame onHomePress={handleHomePress}>
       {isUnlocked ? (
         appOpened ? (
-          <div className="app-screen">
-            <p>🎮 Application en cours de développement...</p>
-          </div>
+          appOpened === "Rezo" ? (
+            <RezoApp />
+          ) : (
+            <div className="app-screen">
+              <p>🎮 Application {appOpened} en cours de développement...</p>
+            </div>
+          )
         ) : (
-          <HomeScreen openApp={() => setAppOpened(true)} />
+          <HomeScreen apps={apps} openApp={handleAppOpen} />
         )
       ) : (
         <LockScreen onUnlock={handleUnlock} />

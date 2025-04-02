@@ -54,7 +54,22 @@
   border-radius: 10px;
   opacity: 0.8;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, transform 0.2s ease-out;
+}
+
+.home-indicator::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 120px;
+  height: 35px;
+  background-color: transparent;
+}
+
+.home-indicator:hover,
+.home-indicator:focus {
+  transform: translateX(-50%) translateY(-5px);
 }
 
 .home-indicator:active {

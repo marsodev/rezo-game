@@ -1,14 +1,15 @@
 import React from "react";
 import "./HomeScreen.css";
-import appIcon from "../../assets/img/app-icon.png";
 
-const HomeScreen = ({ openApp }) => {
+const HomeScreen = ({ apps, openApp }) => {
   return (
     <div className="home-screen">
-      <div className="app-icon" onClick={openApp}>
-        <img src={appIcon} alt="App Icon" />
-        <p>Rezo</p>
-      </div>
+      {apps.map((app, index) => (
+        <div className="app-icon" onClick={() => openApp(app.name)} key={index}>
+          <img src={app.icon} alt={app.name} />
+          <p>{app.name}</p>
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "text": "Bienvenue sur Rezo, le réseau social mystérieux. Prêt pour une première question ?",
+    "sender": "system",
+    "responses": [
+      { "id": 2, "text": "Oui, je suis prêt" },
+      { "id": 3, "text": "Non, pas vraiment..." }
+    ]
+  },
+  {
+    "id": 2,
+    "text": "Tu as choisi 'Oui'. Voici la première question : Quel est le vrai nom de la créatrice de Rezo ?",
+    "sender": "system",
+    "responses": [
+      { "id": 4, "text": "Sarah Rezo" },
+      { "id": 5, "text": "Alice R." }
+    ]
+  },
+  {
+    "id": 3,
+    "text": "Tu n'es pas prêt ? Dommage... Mais tu peux toujours revenir plus tard.",
+    "sender": "system",
+    "responses": []
+  },
+  {
+    "id": 4,
+    "text": "C'est une réponse incorrecte. Ce n'est pas la bonne personne. Tu veux essayer encore ?",
+    "sender": "system",
+    "responses": [
+      { "id": 2, "text": "Je veux réessayer" },
+      { "id": 6, "text": "Je m'excuse, je ne sais pas" }
+    ]
+  },
+  {
+    "id": 5,
+    "text": "Réponse incorrecte. Ce n'est pas la bonne réponse. Essaie encore.",
+    "sender": "system",
+    "responses": [
+      { "id": 2, "text": "Réessayer" },
+      { "id": 6, "text": "Laisser tomber" }
+    ]
+  },
+  {
+    "id": 6,
+    "text": "Tu as choisi de ne pas répondre correctement. Que fais-tu maintenant ?",
+    "sender": "system",
+    "responses": [
+      { "id": 2, "text": "Je vais essayer de me rattraper" },
+      { "id": 7, "text": "Je m'excuse" }
+    ]
+  },
+  {
+    "id": 7,
+    "text": "On dirait que tu veux t'excuser... C'est bon, je comprends.",
+    "sender": "system",
+    "responses": []
+  }
+]
