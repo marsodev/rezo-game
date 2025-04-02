@@ -37,8 +37,8 @@ const LockScreen = ({ onUnlock }) => {
     <div className="locked-screen" onClick={handleScreenClick}>
       {!isScreenClicked && (
         <>
-          <p>🔒</p>
-          <p>Appuyez sur l'écran pour déverrouiller</p>
+          <p className="locked-icon">🔒</p>
+          <p className="unlock-info">Appuyez sur l'écran pour déverrouiller</p>
         </>
       )}
 
