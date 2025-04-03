@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import "./PhotosApp.css";
-import photosData from "./data/photos.json"; // Les images à afficher, par exemple un tableau d'URLs
+import photosData from "./data/photos.json";
 
 const PhotosApp = () => {
-  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
   const handleNextPhoto = () => {
     setSelectedPhotoIndex((prevIndex) =>
@@ -18,16 +20,14 @@ const PhotosApp = () => {
   };
 
   const handleBackToGallery = () => {
-    setSelectedPhotoIndex(null); // Retour à la galerie de photos
+    setSelectedPhotoIndex(null);
   };
 
   return (
     <div className="photos-app">
       <div className="header">
-        <span className="app-version">v1.0</span>
         <span className="header-title">Photos</span>
       </div>
-
       {selectedPhotoIndex === null ? (
         <div className="gallery">
           {photosData.map((photo, index) => (
@@ -45,8 +45,19 @@ const PhotosApp = () => {
           <button className="back-button" onClick={handleBackToGallery}>
             Retour
           </button>
+          <div className="location-container">
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
+            <span className="tooltip">
+              {photosData[selectedPhotoIndex].location}
+            </span>
+          </div>
+
           <div className="photo-container">
-            <button className="prev-button" onClick={handlePreviousPhoto}>
+            <button
+              className="prev-button"
+              onClick={handlePreviousPhoto}
+              disabled={selectedPhotoIndex === 0}
+            >
               &#8592;
             </button>
             <img
@@ -54,7 +65,11 @@ const PhotosApp = () => {
               alt={photosData[selectedPhotoIndex].title}
               className="photo"
             />
-            <button className="next-button" onClick={handleNextPhoto}>
+            <button
+              className="next-button"
+              onClick={handleNextPhoto}
+              disabled={selectedPhotoIndex === photosData.length - 1}
+            >
               &#8594;
             </button>
           </div>

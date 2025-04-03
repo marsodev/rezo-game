@@ -28,8 +28,6 @@ const RezoApp = () => {
 
     setTimeout(() => {
       const nextMessage = messagesData.find((msg) => msg.id === response.id);
-
-      // Ajouter la réponse du système
       setMessages((prevMessages) => [...prevMessages, nextMessage]);
       setResponseOptions(nextMessage.responses);
     }, 500);
@@ -50,7 +48,7 @@ const RezoApp = () => {
               <p>{message.text}</p>
             </div>
           ))}
-          <div ref={messagesEndRef} /> {/* Ancre invisible pour auto-scroll */}
+          <div ref={messagesEndRef} />
         </div>
 
         <div className="response-options">

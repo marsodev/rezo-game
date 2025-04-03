@@ -51,6 +51,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 10px;
+  gap: 15px;
 }
 
 .pin-keypad button {
@@ -74,6 +75,12 @@
 .pin-keypad button:nth-child(10) {
   grid-column: 2;
   grid-row: 4;
+}
+
+.delete-btn {
+  grid-column: 3;
+  grid-row: 4;
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
 .error-message {

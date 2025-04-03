@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import "./LockScreen.css";
 
 const LockScreen = ({ onUnlock }) => {
@@ -18,6 +18,10 @@ const LockScreen = ({ onUnlock }) => {
     if (pin.length < 4) {
       setPin(pin + number);
     }
+  };
+
+  const handleDelete = () => {
+    setPin(pin.slice(0, -1));
   };
 
   const checkPin = () => {
@@ -69,6 +73,9 @@ const LockScreen = ({ onUnlock }) => {
                 {num}
               </button>
             ))}
+            <button className="delete-btn" onClick={handleDelete}>
+              <FontAwesomeIcon icon={faDeleteLeft} />
+            </button>
           </div>
         </div>
       )}
