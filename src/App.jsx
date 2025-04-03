@@ -3,6 +3,7 @@ import PhoneFrame from "./components/PhoneFrame/PhoneFrame";
 import LockScreen from "./components/LockScreen/LockScreen";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import RezoApp from "./apps/RezoApp/RezoApp";
+import Navbar from "./components/Navbar/Navbar";
 import "./styles/App.css";
 import appIcon from "./assets/img/app-icon.png";
 
@@ -17,31 +18,40 @@ const App = () => {
   };
 
   const handleHomePress = () => {
-    setAppOpened(null);
+    if (!appOpened) {
+      setIsUnlocked(false);
+    } else {
+      setAppOpened(null);
+    }
   };
 
   const handleAppOpen = (appName) => {
     setAppOpened(appName);
   };
 
+  const isHomeScreen = isUnlocked && !appOpened;
+
   return (
-    <PhoneFrame onHomePress={handleHomePress}>
-      {isUnlocked ? (
-        appOpened ? (
-          appOpened === "Rezo" ? (
-            <RezoApp />
+    <>
+      <Navbar />
+      <PhoneFrame onHomePress={handleHomePress} isHomeScreen={isHomeScreen}>
+        {isUnlocked ? (
+          appOpened ? (
+            appOpened === "Rezo" ? (
+              <RezoApp />
+            ) : (
+              <div className="app-screen">
+                <p>🎮 Application {appOpened} en cours de développement...</p>
+              </div>
+            )
           ) : (
-            <div className="app-screen">
-              <p>🎮 Application {appOpened} en cours de développement...</p>
-            </div>
+            <HomeScreen apps={apps} openApp={handleAppOpen} />
           )
         ) : (
-          <HomeScreen apps={apps} openApp={handleAppOpen} />
-        )
-      ) : (
-        <LockScreen onUnlock={handleUnlock} />
-      )}
-    </PhoneFrame>
+          <LockScreen onUnlock={handleUnlock} />
+        )}
+      </PhoneFrame>
+    </>
   );
 };
 

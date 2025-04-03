@@ -7,7 +7,7 @@ const LockScreen = ({ onUnlock }) => {
   const [pin, setPin] = useState("");
   const [showPinPad, setShowPinPad] = useState(false);
   const [isScreenClicked, setIsScreenClicked] = useState(false);
-  const [isShaking, setIsShaking] = useState(false);
+  const [isPinIncorrect, setIsPinIncorrect] = useState(false);
 
   const handleScreenClick = () => {
     setShowPinPad(true);
@@ -22,12 +22,13 @@ const LockScreen = ({ onUnlock }) => {
 
   const checkPin = () => {
     if (pin === "1234") {
+      setIsPinIncorrect(false);
       onUnlock();
       setPin("");
     } else {
-      setIsShaking(true);
+      setIsPinIncorrect(true);
       setTimeout(() => {
-        setIsShaking(false);
+        setIsPinIncorrect(false);
         setPin("");
       }, 500);
     }
@@ -39,7 +40,7 @@ const LockScreen = ({ onUnlock }) => {
 
   return (
     <div
-      className={`locked-screen ${isShaking ? "shake" : ""}`}
+      className={`locked-screen ${isPinIncorrect ? "shake" : ""}`}
       onClick={handleScreenClick}
     >
       {!isScreenClicked && (

@@ -1,64 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./RezoApp.css";
 import messagesData from "./data/messages.json";
-
-const wrongResponses = [
-  "Ce n'est pas la réponse que j'attendais.",
-  "Tu es bizarre, ça va ? Tu ne réagis pas comme ça d'habitude.",
-  "Hum... Ce n'est pas ce que je voulais entendre.",
-  "Je pense que tu n'as pas bien compris.",
-  "Ce n'est pas la bonne direction, essaie encore.",
-  "Ça ne ressemble pas à ce que j'attendais.",
-];
+import fakeProfile from "../../assets/img/fake-profile.png";
 
 const RezoApp = () => {
   const [messages, setMessages] = useState([]);
   const [responseOptions, setResponseOptions] = useState([]);
   const [responseStatus, setResponseStatus] = useState("");
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     setMessages([messagesData[0]]);
     setResponseOptions(messagesData[0].responses);
   }, []);
 
-  const handleResponse = (responseId) => {
-    const nextMessage = messagesData.find((msg) => msg.id === responseId);
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
-    if (nextMessage.id === 4 || nextMessage.id === 5) {
-      setResponseStatus(
-        wrongResponses[Math.floor(Math.random() * wrongResponses.length)]
-      );
-    } else {
-      setResponseStatus("");
-    }
+  const handleResponse = (response) => {
+    const userMessage = {
+      id: Date.now(),
+      text: response.text,
+      sender: "user",
+    };
 
-    setMessages([...messages, nextMessage]);
-    setResponseOptions(nextMessage.responses);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
+
+    setTimeout(() => {
+      const nextMessage = messagesData.find((msg) => msg.id === response.id);
+
+      if (nextMessage.id === 4 || nextMessage.id === 5) {
+        setResponseStatus(
+          wrongResponses[Math.floor(Math.random() * wrongResponses.length)]
+        );
+      } else {
+        setResponseStatus("");
+      }
+
+      setMessages((prevMessages) => [...prevMessages, nextMessage]);
+      setResponseOptions(nextMessage.responses);
+    }, 500);
   };
 
   return (
     <div className="rezo-app">
       <div className="header">
-        <div className="logo">Rezo</div>
+        <span className="app-version">v1.2</span>
+        <span className="header-title">Rezo</span>
+        <img src={fakeProfile} alt="Profil" className="profile-pic" />
       </div>
+
       <div className="chat-container">
         <div className="messages">
           {messages.map((message, index) => (
-            <div key={index} className={message.sender}>
+            <div key={index} className={`message ${message.sender}`}>
               <p>{message.text}</p>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
-
-        {responseStatus && (
-          <div className="response-status">
-            <p>{responseStatus}</p>
-          </div>
-        )}
 
         <div className="response-options">
           {responseOptions.map((response, index) => (
-            <button key={index} onClick={() => handleResponse(response.id)}>
+            <button key={index} onClick={() => handleResponse(response)}>
               {response.text}
             </button>
           ))}
