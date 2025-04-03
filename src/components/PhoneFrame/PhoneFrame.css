@@ -6,7 +6,10 @@
 }
 
 .phone-frame {
-  position: relative;
+  position: fixed; /* S'assurer que la position est fixée et ne bouge pas */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 300px;
   height: 600px;
   background-color: #000000;

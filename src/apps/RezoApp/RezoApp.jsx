@@ -6,7 +6,6 @@ import fakeProfile from "../../assets/img/fake-profile.png";
 const RezoApp = () => {
   const [messages, setMessages] = useState([]);
   const [responseOptions, setResponseOptions] = useState([]);
-  const [responseStatus, setResponseStatus] = useState("");
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -30,14 +29,7 @@ const RezoApp = () => {
     setTimeout(() => {
       const nextMessage = messagesData.find((msg) => msg.id === response.id);
 
-      if (nextMessage.id === 4 || nextMessage.id === 5) {
-        setResponseStatus(
-          wrongResponses[Math.floor(Math.random() * wrongResponses.length)]
-        );
-      } else {
-        setResponseStatus("");
-      }
-
+      // Ajouter la réponse du système
       setMessages((prevMessages) => [...prevMessages, nextMessage]);
       setResponseOptions(nextMessage.responses);
     }, 500);
@@ -58,7 +50,7 @@ const RezoApp = () => {
               <p>{message.text}</p>
             </div>
           ))}
-          <div ref={messagesEndRef} />
+          <div ref={messagesEndRef} /> {/* Ancre invisible pour auto-scroll */}
         </div>
 
         <div className="response-options">
