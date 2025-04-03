@@ -2,14 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-}
-
-.phone-frame {
-  position: fixed; /* S'assurer que la position est fixée et ne bouge pas */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+}
+
+.phone-frame {
+  position: relative;
   width: 300px;
   height: 600px;
   background-color: #000000;
