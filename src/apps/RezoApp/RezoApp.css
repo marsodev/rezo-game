@@ -45,33 +45,40 @@
 }
 
 .messages {
-  flex-grow: 1;
-  overflow-y: auto;
-  margin-bottom: 10px;
-  max-height: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .message {
-  max-width: 85%;
-  padding: 10px;
+  display: inline-block;
+  max-width: 75%; /* Réduit légèrement la largeur max pour un effet plus naturel */
+  padding: 10px 15px;
   border-radius: 15px;
-  margin-bottom: 8px;
   font-size: 14px;
+  word-wrap: break-word;
 }
 
 .message.system {
   background-color: #16181c;
   border: 1px solid #2f3336;
   color: #e7e9ea;
-  text-align: left;
-  align-self: flex-start;
+  align-self: flex-start; /* Aligne à gauche */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .message.user {
   background-color: #1da1f2;
   color: white;
+  align-self: flex-end; /* Aligne à droite */
   text-align: right;
-  align-self: flex-end;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .response-options button {

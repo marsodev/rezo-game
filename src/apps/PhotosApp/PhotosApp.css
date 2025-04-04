@@ -11,8 +11,6 @@
 .photos-app .header {
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
 }
 
 .gallery {
@@ -30,7 +28,6 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 10px;
   height: 70px;
 }
 
@@ -42,7 +39,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .photo-view {
@@ -51,6 +47,7 @@
 }
 
 .photo-container {
+  top: -30px;
   position: relative;
 }
 
@@ -64,11 +61,14 @@
 .prev-button,
 .next-button,
 .back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #3333336c;
   color: white;
   border: none;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   position: absolute;
   z-index: 1;

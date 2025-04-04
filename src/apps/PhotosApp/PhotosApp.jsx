@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./PhotosApp.css";
 import photosData from "./data/photos.json";
 
@@ -43,7 +46,7 @@ const PhotosApp = () => {
       ) : (
         <div className="photo-view">
           <button className="back-button" onClick={handleBackToGallery}>
-            Retour
+            <FontAwesomeIcon icon={faLeftLong} />
           </button>
           <div className="location-container">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
@@ -58,7 +61,7 @@ const PhotosApp = () => {
               onClick={handlePreviousPhoto}
               disabled={selectedPhotoIndex === 0}
             >
-              &#8592;
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <img
               src={photosData[selectedPhotoIndex].url}
@@ -70,7 +73,7 @@ const PhotosApp = () => {
               onClick={handleNextPhoto}
               disabled={selectedPhotoIndex === photosData.length - 1}
             >
-              &#8594;
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>

@@ -6,6 +6,7 @@ import fakeProfile from "../../assets/img/fake-profile.png";
 const RezoApp = () => {
   const [messages, setMessages] = useState([]);
   const [responseOptions, setResponseOptions] = useState([]);
+  const [isWaitingForResponse, setIsWaitingForResponse] = useState(false); // État pour bloquer les réponses
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -18,6 +19,10 @@ const RezoApp = () => {
   }, [messages]);
 
   const handleResponse = (response) => {
+    if (isWaitingForResponse) return; // Bloque toute réponse supplémentaire
+
+    setIsWaitingForResponse(true); // Désactive les options de réponse
+
     const userMessage = {
       id: Date.now(),
       text: response.text,
@@ -28,9 +33,12 @@ const RezoApp = () => {
 
     setTimeout(() => {
       const nextMessage = messagesData.find((msg) => msg.id === response.id);
-      setMessages((prevMessages) => [...prevMessages, nextMessage]);
-      setResponseOptions(nextMessage.responses);
-    }, 500);
+      if (nextMessage) {
+        setMessages((prevMessages) => [...prevMessages, nextMessage]);
+        setResponseOptions(nextMessage.responses);
+      }
+      setIsWaitingForResponse(false); // Réactive les réponses après la réponse du système
+    }, 1000);
   };
 
   return (
@@ -51,13 +59,16 @@ const RezoApp = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="response-options">
-          {responseOptions.map((response, index) => (
-            <button key={index} onClick={() => handleResponse(response)}>
-              {response.text}
-            </button>
-          ))}
-        </div>
+        {/* Cache les réponses tant que le système n'a pas répondu */}
+        {!isWaitingForResponse && (
+          <div className="response-options">
+            {responseOptions.map((response, index) => (
+              <button key={index} onClick={() => handleResponse(response)}>
+                {response.text}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -34,6 +34,7 @@
   height: 20px;
   background-color: #333333;
   border-radius: 0 0 20px 20px;
+  z-index: 5;
 }
 
 .screen {
@@ -93,6 +94,7 @@
   font-size: 14px;
   color: white;
   font-family: Arial, sans-serif;
+  z-index: 3;
 }
 
 .time {
@@ -101,4 +103,15 @@
 
 .battery {
   font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assurez-vous que le défilement reste fonctionnel */
+.scrollable-container {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* Masquer la barre de défilement sur Edge */
+  scrollbar-width: none; /* Masquer la barre de défilement sur Firefox */
 }
