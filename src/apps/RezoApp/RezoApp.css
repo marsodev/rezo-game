@@ -52,7 +52,7 @@
 
 .message {
   display: inline-block;
-  max-width: 75%; /* Réduit légèrement la largeur max pour un effet plus naturel */
+  max-width: 75%;
   padding: 10px 15px;
   border-radius: 15px;
   font-size: 14px;
@@ -63,7 +63,7 @@
   background-color: #16181c;
   border: 1px solid #2f3336;
   color: #e7e9ea;
-  align-self: flex-start; /* Aligne à gauche */
+  align-self: flex-start;
   border-top-left-radius: 5px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -73,7 +73,7 @@
 .message.user {
   background-color: #1da1f2;
   color: white;
-  align-self: flex-end; /* Aligne à droite */
+  align-self: flex-end;
   text-align: right;
   border-top-left-radius: 15px;
   border-top-right-radius: 5px;

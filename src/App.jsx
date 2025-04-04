@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PhoneFrame from "./components/PhoneFrame/PhoneFrame";
 import LockScreen from "./components/LockScreen/LockScreen";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
@@ -12,15 +12,31 @@ import photosIcon from "./assets/img/app-icon-2.png";
 const App = () => {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [appOpened, setAppOpened] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const savedUnlocked = localStorage.getItem("isUnlocked") === "true";
+    const savedAppOpened = localStorage.getItem("appOpened") || null;
+
+    setIsUnlocked(savedUnlocked);
+    setAppOpened(savedAppOpened);
+
+    setTimeout(() => setIsLoading(false), 200);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      localStorage.setItem("isUnlocked", isUnlocked);
+      localStorage.setItem("appOpened", appOpened || "");
+    }
+  }, [isUnlocked, appOpened, isLoading]);
 
   const apps = [
     { name: "Rezo", icon: appIcon },
     { name: "Photos", icon: photosIcon },
   ];
 
-  const handleUnlock = () => {
-    setIsUnlocked(true);
-  };
+  const handleUnlock = () => setIsUnlocked(true);
 
   const handleHomePress = () => {
     if (!appOpened) {
@@ -30,11 +46,11 @@ const App = () => {
     }
   };
 
-  const handleAppOpen = (appName) => {
-    setAppOpened(appName);
-  };
+  const handleAppOpen = (appName) => setAppOpened(appName);
 
   const isHomeScreen = isUnlocked && !appOpened;
+
+  if (isLoading) return null;
 
   return (
     <>

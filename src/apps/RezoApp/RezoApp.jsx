@@ -6,22 +6,41 @@ import fakeProfile from "../../assets/img/fake-profile.png";
 const RezoApp = () => {
   const [messages, setMessages] = useState([]);
   const [responseOptions, setResponseOptions] = useState([]);
-  const [isWaitingForResponse, setIsWaitingForResponse] = useState(false); // État pour bloquer les réponses
+  const [isWaitingForResponse, setIsWaitingForResponse] = useState(false);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    setMessages([messagesData[0]]);
-    setResponseOptions(messagesData[0].responses);
+    const savedMessages = JSON.parse(localStorage.getItem("messages"));
+    const savedResponseOptions = JSON.parse(
+      localStorage.getItem("responseOptions")
+    );
+
+    if (savedMessages && savedResponseOptions) {
+      setMessages(savedMessages);
+      setResponseOptions(savedResponseOptions);
+    } else {
+      setMessages([messagesData[0]]);
+      setResponseOptions(messagesData[0].responses);
+    }
   }, []);
+
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem("messages", JSON.stringify(messages));
+    }
+    if (responseOptions.length > 0) {
+      localStorage.setItem("responseOptions", JSON.stringify(responseOptions));
+    }
+  }, [messages, responseOptions]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const handleResponse = (response) => {
-    if (isWaitingForResponse) return; // Bloque toute réponse supplémentaire
+    if (isWaitingForResponse) return;
 
-    setIsWaitingForResponse(true); // Désactive les options de réponse
+    setIsWaitingForResponse(true);
 
     const userMessage = {
       id: Date.now(),
@@ -37,7 +56,7 @@ const RezoApp = () => {
         setMessages((prevMessages) => [...prevMessages, nextMessage]);
         setResponseOptions(nextMessage.responses);
       }
-      setIsWaitingForResponse(false); // Réactive les réponses après la réponse du système
+      setIsWaitingForResponse(false);
     }, 1000);
   };
 
@@ -58,8 +77,6 @@ const RezoApp = () => {
           ))}
           <div ref={messagesEndRef} />
         </div>
-
-        {/* Cache les réponses tant que le système n'a pas répondu */}
         {!isWaitingForResponse && (
           <div className="response-options">
             {responseOptions.map((response, index) => (

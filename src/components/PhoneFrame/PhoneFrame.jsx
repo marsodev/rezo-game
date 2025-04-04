@@ -4,7 +4,7 @@ import "./PhoneFrame.css";
 const PhoneFrame = ({ children, onHomePress, isHomeScreen }) => {
   const [time, setTime] = useState(new Date());
   const [isShaking, setIsShaking] = useState(false);
-  const [prevIsHomeScreen, setPrevIsHomeScreen] = useState(isHomeScreen);
+  const [prevIsHomeScreen, setPrevIsHomeScreen] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,16 +22,12 @@ const PhoneFrame = ({ children, onHomePress, isHomeScreen }) => {
   };
 
   useEffect(() => {
-    if (isHomeScreen && prevIsHomeScreen) {
+    if (prevIsHomeScreen !== null && isHomeScreen && prevIsHomeScreen) {
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
     }
     setPrevIsHomeScreen(isHomeScreen);
   }, [isHomeScreen]);
-
-  const handleHomeIndicatorClick = () => {
-    onHomePress();
-  };
 
   return (
     <div className={`phone-frame-container ${isShaking ? "shake" : ""}`}>
@@ -42,10 +38,7 @@ const PhoneFrame = ({ children, onHomePress, isHomeScreen }) => {
         </div>
         <div className="notch"></div>
         <div className="screen">{children}</div>
-        <div
-          className="home-indicator"
-          onClick={handleHomeIndicatorClick}
-        ></div>
+        <div className="home-indicator" onClick={onHomePress}></div>
       </div>
     </div>
   );
