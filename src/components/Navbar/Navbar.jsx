@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/img/logo-full.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRotateRight } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -25,7 +27,7 @@ const Navbar = () => {
         Comment jouer ?
       </a>
       <button className="reset-button" onClick={handleResetClick}>
-        Réinitialiser
+        <FontAwesomeIcon icon={faArrowRotateRight} />
       </button>
 
       {showConfirm && (
