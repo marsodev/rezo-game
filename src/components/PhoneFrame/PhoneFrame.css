@@ -99,8 +99,60 @@
   font-weight: bold;
 }
 
-.battery {
-  font-weight: bold;
+.status-right {
+  display: flex;
+  align-items: center;
+}
+
+.network-signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.network-signal .bar {
+  width: 3px;
+  background-color: white;
+  border-radius: 1px;
+}
+
+.bar-1 {
+  height: 4px;
+}
+.bar-2 {
+  height: 7px;
+}
+.bar-3 {
+  height: 10px;
+}
+.bar-4 {
+  height: 13px;
+}
+
+.bar.empty {
+  background-color: #444; /* une teinte plus sombre pour indiquer qu'elle est inactive */
+}
+
+.battery-visual {
+  position: relative;
+  width: 30px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  background-color: transparent;
+  margin-left: 8px;
+  box-sizing: border-box;
+}
+
+.battery-level {
+  height: 100%;
+  background-color: #00ff00;
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
 }
 
 .shake {

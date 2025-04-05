@@ -26,6 +26,12 @@ const PhotosApp = () => {
     setSelectedPhotoIndex(null);
   };
 
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const toggleTooltip = () => {
+    setShowTooltip(!showTooltip);
+  };
+
   return (
     <div className="photos-app">
       <div className="header">
@@ -48,11 +54,13 @@ const PhotosApp = () => {
           <button className="back-button" onClick={handleBackToGallery}>
             <FontAwesomeIcon icon={faLeftLong} />
           </button>
-          <div className="location-container">
+          <div className="location-container" onClick={toggleTooltip}>
             <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
-            <span className="tooltip">
-              {photosData[selectedPhotoIndex].location}
-            </span>
+            {showTooltip && (
+              <span className="tooltip">
+                {photosData[selectedPhotoIndex].location}
+              </span>
+            )}
           </div>
 
           <div className="photo-container">

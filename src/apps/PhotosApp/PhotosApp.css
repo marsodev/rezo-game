@@ -13,10 +13,18 @@
   justify-content: center;
 }
 
+.photos-app .header .header-title {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e7e9ea;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
+  min-height: 90%;
   max-height: 90%;
   overflow-y: auto;
   box-sizing: border-box;
@@ -105,13 +113,15 @@
 
 .location-container {
   position: absolute;
-  margin-top: 20px;
   top: 25px;
   right: 15px;
   display: flex;
   align-items: center;
   cursor: pointer;
   z-index: 1;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3); /* Pour feedback visuel au toucher */
 }
 
 .location-icon {
@@ -120,22 +130,25 @@
   transition: transform 0.2s ease-in-out;
 }
 
+.location-icon:hover {
+  opacity: 0.7;
+}
+
 .location-container:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
 .tooltip {
-  visibility: hidden;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
   position: absolute;
-  top: -10px;
-  right: 30px;
+  top: 40px;
+  right: 0;
   white-space: nowrap;
-  transition: opacity 0.3s ease-in-out;
   font-size: 12px;
+  z-index: 2;
+  opacity: 1;
 }

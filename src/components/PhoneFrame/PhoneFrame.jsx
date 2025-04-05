@@ -34,7 +34,18 @@ const PhoneFrame = ({ children, onHomePress, isHomeScreen }) => {
       <div className="phone-frame">
         <div className="status-bar">
           <span className="time">{formatTime(time)}</span>
-          <span className="battery">🔋 80%</span>
+          <div className="status-right">
+            <div className="network-signal">
+              <div className="bar bar-1"></div>
+              <div className="bar bar-2"></div>
+              <div className="bar bar-3"></div>
+              <div className="bar bar-4 empty"></div>{" "}
+              {/* dernière barre vide */}
+            </div>
+            <div className="battery-visual">
+              <div className="battery-level" style={{ width: "80%" }}></div>
+            </div>
+          </div>
         </div>
         <div className="notch"></div>
         <div className="screen">{children}</div>

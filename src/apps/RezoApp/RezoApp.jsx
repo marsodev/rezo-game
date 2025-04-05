@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./RezoApp.css";
+import rezoLogo from "../../assets/img/logo-full.png";
 import messagesData from "./data/messages.json";
 import fakeProfile from "../../assets/img/fake-profile.png";
 
@@ -64,7 +65,7 @@ const RezoApp = () => {
     <div className="rezo-app">
       <div className="header">
         <span className="app-version">v1.2</span>
-        <span className="header-title">Rezo</span>
+        <img src={rezoLogo} alt="logo rezo" className="header-title" />
         <img src={fakeProfile} alt="Profil" className="profile-pic" />
       </div>
 
