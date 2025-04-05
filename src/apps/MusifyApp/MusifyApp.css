@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: black;
+  background-color: rgb(28, 28, 28);
   color: white;
   width: 100%;
 }
@@ -11,8 +11,12 @@
   padding: 10px;
   text-align: center;
   font-weight: bold;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #303030;
   margin-top: 25px;
+}
+
+.musify-app .header-title img {
+  width: 40px;
 }
 
 .music-list {
@@ -25,32 +29,57 @@
 
 .music-card {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  background-color: #181818;
-  border-radius: 10px;
-  padding: 10px;
-  gap: 10px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  gap: 12px;
+  height: 72px;
 }
 
 .cover-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
 .music-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  margin-left: 10px;
+  gap: 5px;
 }
 
 .title {
-  font-size: 1.1em;
+  font-size: 1em;
+  font-weight: 600;
   margin: 0;
+  color: white;
+  line-height: 1.2;
 }
 
 .duration,
 .plays {
-  font-size: 0.85em;
+  font-size: 0.75em;
   color: #aaa;
+  margin: 0;
+  line-height: 1;
+}
+
+.play-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease;
+}
+
+.play-button:hover {
+  color: #1db954;
 }

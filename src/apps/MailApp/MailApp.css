@@ -24,10 +24,13 @@
 }
 
 .mail-preview {
-  padding: 10px;
+  padding: 6px 10px;
   cursor: pointer;
   background-color: #181818;
-  border-radius: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .mail-preview:hover {
@@ -35,21 +38,38 @@
 }
 
 .subject {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.95em;
+  margin: 0;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.sender-date-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75em;
+  color: #999;
 }
 
 .sender {
+  margin: 0;
   font-size: 0.9em;
   color: #949494;
 }
 
+.date {
+  margin: 0;
+}
+
 .body-preview {
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #777;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .mail-detail {
-  margin-top: 20px;
   padding: 10px;
 }
 
