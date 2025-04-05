@@ -4,10 +4,14 @@ import LockScreen from "./components/LockScreen/LockScreen";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import RezoApp from "./apps/RezoApp/RezoApp";
 import PhotosApp from "./apps/PhotosApp/PhotosApp";
+import MailApp from "./apps/MailApp/MailApp";
+import MusifyApp from "./apps/MusifyApp/MusifyApp";
 import Navbar from "./components/Navbar/Navbar";
 import "./styles/App.css";
 import appIcon from "./assets/img/app-icon.png";
 import photosIcon from "./assets/img/app-icon-2.png";
+import mailIcon from "./assets/img/mail-icon.png";
+import musicIcon from "./assets/img/music-icon.png";
 
 const App = () => {
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -34,6 +38,8 @@ const App = () => {
   const apps = [
     { name: "Rezo", icon: appIcon },
     { name: "Photos", icon: photosIcon },
+    { name: "Mail", icon: mailIcon },
+    { name: "Musify", icon: musicIcon },
   ];
 
   const handleUnlock = () => setIsUnlocked(true);
@@ -62,6 +68,10 @@ const App = () => {
               <RezoApp />
             ) : appOpened === "Photos" ? (
               <PhotosApp />
+            ) : appOpened === "Mail" ? (
+              <MailApp />
+            ) : appOpened === "Musify" ? (
+              <MusifyApp />
             ) : (
               <div className="app-screen">
                 <p>🎮 Application {appOpened} en cours de développement...</p>

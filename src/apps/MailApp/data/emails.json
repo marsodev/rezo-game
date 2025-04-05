@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "sender": "marie@contact.com",
+    "subject": "Bienvenue sur Rezo!",
+    "body": "Salut ! On est ravis de te compter parmi nous. N’hésite pas à répondre si tu as des questions.",
+    "date": "2025-04-05 14:22"
+  },
+  {
+    "id": 2,
+    "sender": "support@jeu.com",
+    "subject": "Mise à jour du système",
+    "body": "Une nouvelle mise à jour est disponible. Pense à redémarrer ton téléphone pour en profiter !",
+    "date": "2025-04-04 09:18"
+  },
+  {
+    "id": 3,
+    "sender": "lucas@mail.com",
+    "subject": "T’as vu ça ?",
+    "body": "Check ce que je t’ai envoyé. C’est ouf ! 😂",
+    "date": "2025-04-03 21:07"
+  }
+]

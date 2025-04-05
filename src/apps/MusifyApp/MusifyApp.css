@@ -1,0 +1,56 @@
+.musify-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.musify-app .header {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #222;
+  margin-top: 25px;
+}
+
+.music-list {
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.music-card {
+  display: flex;
+  align-items: center;
+  background-color: #181818;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.cover-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.duration,
+.plays {
+  font-size: 0.85em;
+  color: #aaa;
+}

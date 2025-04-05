@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Midnight Vibes",
+    "duration": "3:42",
+    "plays": 10245,
+    "cover": "/assets/music-covers/midnight.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Lost in Dreams",
+    "duration": "4:17",
+    "plays": 8573,
+    "cover": "/assets/music-covers/dreams.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Sunset Boulevard",
+    "duration": "2:55",
+    "plays": 19230,
+    "cover": "/assets/music-covers/sunset.jpg"
+  }
+]
