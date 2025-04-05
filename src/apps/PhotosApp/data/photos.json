@@ -1,12 +1,12 @@
 [
   {
     "title": "Photo 1",
-    "url": "iamges/photoapps/photo1.jpg",
+    "url": "images/photoapps/photo1.jpg",
     "location": "Rue du Test, Reims, France"
   },
   {
     "title": "Photo 2",
-    "url": "iamges/photoapps/photo2.jpg",
+    "url": "images/photoapps/photo2.jpg",
     "location": "Lyon, France"
   }
 ]
