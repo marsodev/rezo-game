@@ -40,7 +40,6 @@ const PhoneFrame = ({ children, onHomePress, isHomeScreen }) => {
               <div className="bar bar-2"></div>
               <div className="bar bar-3"></div>
               <div className="bar bar-4 empty"></div>{" "}
-              {/* dernière barre vide */}
             </div>
             <div className="battery-visual">
               <div className="battery-level" style={{ width: "80%" }}></div>

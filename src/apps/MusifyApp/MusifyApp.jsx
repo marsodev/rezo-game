@@ -8,6 +8,16 @@ import logoMusic from "../../assets/img/music-logo.png";
 const MusifyApp = () => {
   const [currentTrackId, setCurrentTrackId] = useState(null);
   const audioRefs = useRef({});
+  const [volume, setVolume] = useState(1);
+
+  const handleVolumeChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+
+    Object.values(audioRefs.current).forEach((audio) => {
+      if (audio) audio.volume = newVolume;
+    });
+  };
 
   const handlePlayPause = (id) => {
     const audio = audioRefs.current[id];
@@ -36,6 +46,19 @@ const MusifyApp = () => {
         <span className="header-title">
           <img src={logoMusic} alt="logo Musify" />
         </span>
+        <div className="volume-control">
+          <label>
+            🔊
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={handleVolumeChange}
+            />
+          </label>
+        </div>
       </div>
       <div className="music-list">
         {musicData.map((track) => (

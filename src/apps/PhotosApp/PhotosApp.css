@@ -117,6 +117,7 @@
 }
 
 .location-container {
+  margin-top: 10px;
   position: absolute;
   top: 25px;
   right: 15px;
